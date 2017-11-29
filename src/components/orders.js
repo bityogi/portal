@@ -1,5 +1,22 @@
 import React, { Component } from 'react';
-import { List, Datagrid, TextField, BooleanField, DateField, UrlField } from 'admin-on-rest';
+import {
+  List,
+  Datagrid,
+  TextField,
+  BooleanField,
+  DateField,
+  UrlField,
+  Filter,
+  TextInput
+ } from 'admin-on-rest';
+
+const OrderFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Number" source="number" alwaysOn />
+    <TextInput label="Status" source="status" />
+    <TextInput label="Type" source="type" />
+  </Filter>
+)
 
 class OrderList extends Component {
 
@@ -7,7 +24,10 @@ class OrderList extends Component {
     console.log('list props: ', this.props);
 
     return (
-      <List {...this.props} title={'Orders'}>
+      <List
+        {...this.props}
+        title={'Orders'}
+        filters={<OrderFilter />}>
         <Datagrid>
           <TextField source="number" />
           <TextField label="campaign" source="campaign.name" />
