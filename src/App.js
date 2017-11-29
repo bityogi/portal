@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 
+import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
 import ReportList from './components/reports'
+
+import TocIcon from 'material-ui/svg-icons/action/toc';
 
 class App extends Component {
 
@@ -12,6 +15,7 @@ class App extends Component {
 
     return (
       <Admin
+        dashboard={Dashboard}
         restClient={jsonServerRestClient(url)}
         title={'SimplySheets Fundraising Portal'}
         >
