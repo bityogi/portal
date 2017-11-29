@@ -6,22 +6,40 @@ import {
   BooleanField,
   DateField,
   UrlField,
+  SelectField,
   Filter,
-  TextInput
+  TextInput,
+  SelectInput
  } from 'admin-on-rest';
 
-const OrderFilter = (props) => (
-  <Filter {...props}>
-    <TextInput label="Number" source="number" alwaysOn />
-    <TextInput label="Status" source="status" />
-    <TextInput label="Type" source="type" />
-  </Filter>
-)
+  const statusChoices = [
+    { id: 'New', name: 'New' },
+    { id: 'Saved', name: 'Saved' },
+    { id: 'Submitted', name: 'Submitted' },
+    { id: 'Pending Payment', name: 'Pending Payment' },
+    { id: 'Ready for Fulfillment', name: 'Ready for Fulfillment' },
+    { id: 'Sent to Fulfillment', name: 'Sent to Fulfillment' },
+    { id: 'Shipped', name: 'Shipped' },
+  ]
+
+  const typeChoices = [
+    { id: 'Primary', name: 'Primary' },
+    { id: 'Correction', name: 'Correction' },
+    { id: 'E-commerce', name: 'E-commerce' },
+  ]
+
+  const OrderFilter = (props) => (
+    <Filter {...props}>
+      <TextInput label="Number" source="number" alwaysOn />
+      <SelectInput label="Status" source="status" choices={statusChoices} />
+      <SelectInput label="Type" source="type" choices={typeChoices} />
+    </Filter>
+  )
 
 class OrderList extends Component {
 
   render() {
-    console.log('list props: ', this.props);
+
 
     return (
       <List
@@ -32,8 +50,8 @@ class OrderList extends Component {
           <TextField source="number" />
           <TextField label="campaign" source="campaign.name" />
           <TextField label="organization" source="campaign.organization.name" />
-          <TextField source="status" />
-          <TextField source="type" />
+          <SelectField source="status" choices={statusChoices} />
+          <SelectField source="type" choices={typeChoices} />
           <DateField label="Updated On" source="updatedAt" />
           <UrlField label="Edit" source="http://www.google.com" />
           <UrlField label="Details" source="http://www.google.com" />
