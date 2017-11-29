@@ -3,6 +3,7 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
+import ReportList from './components/reports'
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
         >
         <Resource name="organizations" list={OrganizationList} />
         <Resource name="orders" list={OrderList} />
+        <Resource name="reports" list={ReportList} />
       </Admin>
     );
   }
