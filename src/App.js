@@ -6,6 +6,7 @@ import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
 import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
+import Salesforce from './components/salesforce'
 import TocIcon from 'material-ui/svg-icons/action/toc';
 
 
@@ -28,6 +29,7 @@ class App extends Component {
         <Resource name='orders' list={OrderList} />
         <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
         <Resource name="reports" list={ReportList} create={ReportCreate} />
+        <Resource name="salesforce" list={Salesforce} />
       </Admin>
     );
   }

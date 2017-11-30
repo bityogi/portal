@@ -26,8 +26,6 @@ const ReportFilter = (props) => (
 class ReportList extends Component {
 
   render() {
-    console.log('list props: ', this.props);
-
     return (
       <List
         {...this.props}
