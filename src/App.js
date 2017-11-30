@@ -5,8 +5,10 @@ import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
 import ReportList from './components/reports'
-import ProductList from './components/products';
+import { ProductList, ProductEdit, ProductCreate } from './components/products';
 import TocIcon from 'material-ui/svg-icons/action/toc';
+
+
 
 class App extends Component {
 
@@ -24,7 +26,7 @@ class App extends Component {
           list={OrganizationList}
           icon={TocIcon}/>
         <Resource name='orders' list={OrderList} />
-        <Resource name='products' list={ProductList} />
+        <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
         <Resource name="reports" list={ReportList} />
       </Admin>
     );
