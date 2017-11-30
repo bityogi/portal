@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import TocIcon from 'material-ui/svg-icons/action/toc';
 
+import Menu from './components/custom-aor/menu';
 import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
 import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
 import Salesforce from './components/salesforce'
-import TocIcon from 'material-ui/svg-icons/action/toc';
+
 
 
 
@@ -21,6 +23,7 @@ class App extends Component {
         dashboard={Dashboard}
         restClient={jsonServerRestClient(url)}
         title={'SimplySheets Fundraising Portal'}
+        menu={Menu}
         >
         <Resource
           name='organizations'
