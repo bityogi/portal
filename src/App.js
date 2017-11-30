@@ -4,7 +4,7 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
-import ReportList from './components/reports'
+import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
 import TocIcon from 'material-ui/svg-icons/action/toc';
 
@@ -27,7 +27,7 @@ class App extends Component {
           icon={TocIcon}/>
         <Resource name='orders' list={OrderList} />
         <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
-        <Resource name="reports" list={ReportList} />
+        <Resource name="reports" list={ReportList} create={ReportCreate} />
       </Admin>
     );
   }

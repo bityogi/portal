@@ -6,20 +6,16 @@ import {
   BooleanField,
   UrlField,
   DateField,
+  SelectField,
   Filter,
-  SelectInput,
-
+  SelectInput
  } from 'admin-on-rest';
 
-import AddressField from '../util/components/AddressField';
-import ContactField from '../util/components/ContactField';
 
-const typeChoices = [
-  { id: 'Orders', name: 'Orders' },
-  { id: 'OrderDetails', name: 'Order Details' },
-  { id: 'OrderContents', name: 'Order Contents' },
-  { id: 'Campaigns', name: 'Campaigns' }
-]
+import AddressField from '../../util/components/AddressField';
+import ContactField from '../../util/components/ContactField';
+
+import { typeChoices } from './util';
 
 const ReportFilter = (props) => (
   <Filter {...props}>
@@ -38,7 +34,7 @@ class ReportList extends Component {
         title='Report History'
         filters={<ReportFilter />}>
         <Datagrid>
-          <TextField label="Report Type" source="type" />
+          <SelectField label="Report Type" source="type" choices={typeChoices} />
           <TextField source="range" />
           <TextField label="Admin" source="createdBy.username" />
           <DateField label="Created On" source="createdAt" />

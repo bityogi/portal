@@ -27,7 +27,8 @@ class OrganizationList extends Component {
       <List
         {...this.props}
         title='Organizations'
-        filters={<OrganizationFilter />}>
+        filters={<OrganizationFilter />}
+        perPage={15}>
         <Datagrid>
           <TextField source="name" />
           <AddressField label="Shipping Address" source="shippingAddress" />

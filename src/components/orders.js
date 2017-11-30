@@ -45,7 +45,8 @@ class OrderList extends Component {
       <List
         {...this.props}
         title={'Orders'}
-        filters={<OrderFilter />}>
+        filters={<OrderFilter />}
+        perPage={15}>
         <Datagrid>
           <TextField source="number" />
           <TextField label="campaign" source="campaign.name" />
