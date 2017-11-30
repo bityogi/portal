@@ -16,7 +16,7 @@ import ContactField from '../util/components/ContactField';
 
 const typeChoices = [
   { id: 'Orders', name: 'Orders' },
-  { id: 'OrderDetails', name: 'OrderD etails' },
+  { id: 'OrderDetails', name: 'Order Details' },
   { id: 'OrderContents', name: 'Order Contents' },
   { id: 'Campaigns', name: 'Campaigns' }
 ]
