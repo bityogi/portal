@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-// import { List, Datagrid, TextField, BooleanField, DateField, UrlField } from 'admin-on-rest';
-import { List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
+import React from 'react';
+import { List, Edit, Create, Datagrid, TextField, EditButton, DisabledInput, LongTextInput, SimpleForm, TextInput } from 'admin-on-rest';
 
 export const ProductList = (props) => (
       <List {...props}>

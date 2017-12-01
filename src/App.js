@@ -5,15 +5,14 @@ import TocIcon from 'material-ui/svg-icons/action/toc';
 import Menu from './custom-aor/menu';
 import { restClient } from './custom-aor/restClient';
 import authClient from './custom-aor/authClient';
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/dashboard/dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
 import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
+import { LocationList, LocationEdit, LocationCreate } from './components/locations';
+
 import Salesforce from './components/salesforce'
-
-
-
 
 class App extends Component {
 
@@ -45,9 +44,16 @@ class App extends Component {
             <Resource name='orders' list={OrderList} />
             : null,
 
+
+          permissions.includes('Admin') ?
+            <Resource name='locations' list={LocationList} edit={LocationEdit} create={LocationCreate} />
+            : null,
+
           permissions.includes('Admin') ?
             <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
             : null,
+
+
 
           permissions.includes('Admin') ?
             <Resource name="reports" list={ReportList} create={ReportCreate} />
@@ -56,14 +62,6 @@ class App extends Component {
           <Resource name="salesforce" list={Salesforce} />,
 
         ]}}
-
-
-
-
-
-
-
-
 
       </Admin>
     );

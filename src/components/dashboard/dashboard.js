@@ -7,7 +7,7 @@ const login_button_styles = {
 };
 
 export default () => (
-    <Card style={{ margin: '2em' }}>
+    <Card style={{ margin: '-2em' }}>
       <CardHeader
         actAsExpander={true}
         showExpandableButton={true}
@@ -16,7 +16,7 @@ export default () => (
         title='Welcome to Simply Sheets Fundraising!'
       />
       <CardMedia>
-        <img src='../../public/index_header.jpg' alt='SSF Logo' />
+        <img src='./index_header.jpg' alt='SSF Logo' />
       </CardMedia>
       <CardText>
         We offer our customers a unique experience in fundraising
@@ -53,9 +53,9 @@ export default () => (
           Manual Orders can and will be accepted.  If you do not have access to a computer
           or if our Chairperson Portal is unavailable, please contact us <a href='mailto:info@simplysheetsfundraising.com'>via email</a> for
           instructions to manually place your order.
-          <h4 class='lead'>Manual Orders</h4>
+          <h4 className='lead'>Manual Orders</h4>
           <h4>We understand that situations with order placement can vary. Please see our manual order process below if circumstances require another order placement method. We are here to assist.</h4>
-          <h5 class='text-justify top-buffer'>Manual Order Process
+          <h5 className='text-justify top-buffer'>Manual Order Process
             <ol>
               <li>If possible, please submit all orders via email (info@simplysheetsfundraising.com - by scanning and attaching.</li>
               <li>Mail (see address below).</li>
@@ -71,10 +71,10 @@ export default () => (
             </ul>
           </h5>
           Please mail orders to:
-          <p class='text-left'>Simply Sheets Fundraising, LLC</p>
-          <p class='text-left'>3760 Sixes Road Suite 126-325</p>
-          <p class='text-left'>Canton, GA 30114</p>
-          <p class='text-left bold'>*SSF will notify you upon receipt of a manually submitted order. If you do not receive this notification within a reasonable amount of time upon submission, please notify us via phone or email of your submission.</p>
+          <p className='text-left'>Simply Sheets Fundraising, LLC</p>
+          <p className='text-left'>3760 Sixes Road Suite 126-325</p>
+          <p className='text-left'>Canton, GA 30114</p>
+          <p className='text-left bold'>*SSF will notify you upon receipt of a manually submitted order. If you do not receive this notification within a reasonable amount of time upon submission, please notify us via phone or email of your submission.</p>
         </section>
       </CardText>
     </Card>

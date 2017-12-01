@@ -18,6 +18,7 @@ const Menu = ({ onMenuTap, logout, push, userLogout }) => (
     </WithPermission>
     <MenuItemLink to="/orders" primaryText="Orders" onClick={onMenuTap} />
     <Divider />
+    <MenuItemLink to="/locations" primaryText="Locations" onClick={onMenuTap} />
     <MenuItemLink to="/products" primaryText="Products" onClick={onMenuTap} />
     <MenuItemLink to="/salesforce" primaryText="Salesforce" onClick={onMenuTap} />
     <Divider />
