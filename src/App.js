@@ -4,7 +4,7 @@ import TocIcon from 'material-ui/svg-icons/action/toc';
 
 import Menu from './custom-aor/menu';
 import { restClient } from './custom-aor/restClient';
-import authClient from './components/custom-aor/authClient';
+import authClient from './custom-aor/authClient';
 import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
@@ -27,14 +27,43 @@ class App extends Component {
         menu={Menu}
         authClient={authClient}
         >
-        <Resource
-          name='organizations'
-          list={OrganizationList}
-          icon={TocIcon}/>
-        <Resource name='orders' list={OrderList} />
-        <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
-        <Resource name="reports" list={ReportList} create={ReportCreate} />
-        <Resource name="salesforce" list={Salesforce} />
+        {permissions => {
+
+          console.log('permissions: ', permissions);
+
+          return [
+
+
+          permissions.includes('Chair') ?
+            <Resource
+              name='organizations'
+              list={OrganizationList}
+              icon={TocIcon}/>
+            : null,
+
+          permissions.includes('Admin') ?
+            <Resource name='orders' list={OrderList} />
+            : null,
+
+          permissions.includes('Admin') ?
+            <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
+            : null,
+
+          permissions.includes('Admin') ?
+            <Resource name="reports" list={ReportList} create={ReportCreate} />
+            : null,
+
+          <Resource name="salesforce" list={Salesforce} />,
+
+        ]}}
+
+
+
+
+
+
+
+
 
       </Admin>
     );
