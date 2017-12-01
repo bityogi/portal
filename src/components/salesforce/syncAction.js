@@ -4,7 +4,7 @@ import { CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import { showNotification } from 'admin-on-rest';
 
-import { restClient } from '../../util';
+import { restClient } from '../../custom-aor/restClient';
 
 const cardActionStyle = {
   zIndex: 2,

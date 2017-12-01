@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import { Admin, Resource } from 'admin-on-rest';
 import TocIcon from 'material-ui/svg-icons/action/toc';
 
-import Menu from './components/custom-aor/menu';
+import Menu from './custom-aor/menu';
+import { restClient } from './custom-aor/restClient';
 import authClient from './components/custom-aor/authClient';
 import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
@@ -17,12 +18,11 @@ import Salesforce from './components/salesforce'
 class App extends Component {
 
   render() {
-    const url = process.env.REACT_APP_API_URL;
 
     return (
       <Admin
         dashboard={Dashboard}
-        restClient={jsonServerRestClient(url)}
+        restClient={restClient}
         title={'SimplySheets Fundraising Portal'}
         menu={Menu}
         authClient={authClient}
