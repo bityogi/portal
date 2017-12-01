@@ -3,6 +3,7 @@ import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 import TocIcon from 'material-ui/svg-icons/action/toc';
 
 import Menu from './components/custom-aor/menu';
+import authClient from './components/custom-aor/authClient';
 import Dashboard from './components/Dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
@@ -24,6 +25,7 @@ class App extends Component {
         restClient={jsonServerRestClient(url)}
         title={'SimplySheets Fundraising Portal'}
         menu={Menu}
+        authClient={authClient}
         >
         <Resource
           name='organizations'
@@ -33,6 +35,7 @@ class App extends Component {
         <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
         <Resource name="reports" list={ReportList} create={ReportCreate} />
         <Resource name="salesforce" list={Salesforce} />
+
       </Admin>
     );
   }

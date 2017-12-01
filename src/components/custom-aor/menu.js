@@ -12,6 +12,7 @@ const Menu = ({ onMenuTap, logout }) => (
     <MenuItemLink to="/salesforce" primaryText="Salesforce" onClick={onMenuTap} />
     <Divider />
     <MenuItemLink to="/reports" primaryText="Reports" onClick={onMenuTap} />
+    {logout}
   </div>
 )
 
