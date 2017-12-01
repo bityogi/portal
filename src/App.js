@@ -34,7 +34,7 @@ class App extends Component {
           return [
 
 
-          permissions.includes('Chair') ?
+          permissions.includes('Admin') ?
             <Resource
               name='organizations'
               list={OrganizationList}

@@ -4,7 +4,7 @@ const httpClient = (url, options = {}) => {
   if (!options.headers) {
     options.headers = new Headers({ Accept: 'application/json' });
   }
-  const user = localStorage.getItem('user');
+  const user = JSON.parse(localStorage.getItem('user'));
   console.log('user in restClient: ', user);
   if (user) {
     options.headers.set('Authorization', `Bearer ${user.token}`);

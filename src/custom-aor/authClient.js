@@ -35,6 +35,7 @@ export default (type, params) => {
   }
   if (type === AUTH_CHECK) {
     console.log('Doing an Auth_Check!');
+    
     return Promise.resolve();
   }
   if (type === AUTH_GET_PERMISSIONS) {
