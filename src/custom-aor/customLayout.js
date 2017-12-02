@@ -15,6 +15,7 @@ import autoprefixer from 'material-ui/utils/autoprefixer';
 import compose from 'recompose/compose';
 import withWidth from 'material-ui/utils/withWidth';
 
+import defaultTheme from './defaultTheme';
 import CustomAppBar from './customAppBar';
 
 const styles = {
@@ -153,6 +154,10 @@ CustomLayout.propTypes = {
   theme: PropTypes.object.isRequired,
   width: PropTypes.number,
 }
+
+CustomLayout.defaultProps = {
+    theme: defaultTheme,
+};
 
 
 const mapStateToProps = state => ({ isLoading: state.admin.loading > 0 });

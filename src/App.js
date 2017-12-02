@@ -26,6 +26,7 @@ class App extends Component {
         title={'SimplySheets Fundraising Portal'}
         menu={Menu}
         authClient={authClient}
+        appLayout={CustomLayout}
         >
         {permissions => {
 
