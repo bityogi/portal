@@ -5,6 +5,7 @@ import TocIcon from 'material-ui/svg-icons/action/toc';
 import Menu from './custom-aor/menu';
 import { restClient } from './custom-aor/restClient';
 import authClient from './custom-aor/authClient';
+import CustomLayout from './custom-aor/customLayout';
 import Dashboard from './components/dashboard/dashboard'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
