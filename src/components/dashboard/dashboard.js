@@ -4,6 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import {lightBlue50, lightBlue900} from 'material-ui/styles/colors'
 
 const login_button_styles = {
   margin: 12,
@@ -34,6 +35,7 @@ export default class Dashboard extends React.Component {
       super(props);
       this.state = {
         expanded: false,
+        MO_expanded: false
       };
     }
 
@@ -45,12 +47,13 @@ export default class Dashboard extends React.Component {
       this.setState({expanded: !this.state.expanded});
     };
 
-    handleExpand = () => {
-      this.setState({expanded: true});
+
+    handle_MO_ExpandChange = (MO_expanded) => {
+      this.setState({expanded: MO_expanded});
     };
 
-    handleReduce = () => {
-      this.setState({expanded: false});
+    handle_MO_Toggle = (event, toggle) => {
+      this.setState({MO_expanded: !this.state.MO_expanded});
     };
 
     render () {
@@ -61,19 +64,32 @@ export default class Dashboard extends React.Component {
           onExpandChange={this.handleExpandChange}
           style={{ margin: '2em' }}>
           <CardMedia
-            overlay={<CardTitle title='Welcome to Simply Sheets Fundraising!' subtitle={subtitle} />}
+            overlay={
+              <CardTitle
+                titleStyle={{'fontSize':'30px', 'font-family':'lobster', 'padding':'1rem', 'fontWeight':'bold'}}
+                titleColor={lightBlue900}
+                title='Welcome to Simply Sheets Fundraising!'
+              />
+            }
           >
             <img src='./index_header.jpg' alt='' />
           </CardMedia>
+          <CardText
+            style={{'fontSize':'20px', 'padding':'1rem', 'fontWeight':'bold'}}
+          >
+            {subtitle}
+          </CardText>
           <CardActions>
             <RaisedButton label='Create a new account' style={login_button_styles} />
             <RaisedButton label='Chairperson Login' primary={true} style={login_button_styles} />
-            <RaisedButton label='Seller/Sharer Login' secondary={true} style={login_button_styles} />
+            <RaisedButton label='Seller/Sharer Login' primary={true} style={login_button_styles} />
             <RaisedButton label='Not Sure?  Click here!'
-              fullWidth={true} onClick={this.handleToggle}
+              secondary={true}
+              onClick={this.handleToggle}
               icon={<FontIcon className='muidocs-icon-custom-github' />}
             />
           </CardActions>
+
           <CardText expandable={true}>
             <ul className='signup_guidance_wrapper'>
               <li>
@@ -93,12 +109,10 @@ export default class Dashboard extends React.Component {
           </CardText>
         </Card>
         <Card
+          expanded={this.state.MO_expanded}
+          onExpandChange={this.handle_MO_ExpandChange}
           style={{ margin: '2em' }}>
-          <CardMedia
-            overlay={<CardTitle title='Manual Orders' subtitle={MO_subtitle} />}
-          >
-            <img src='./index_header.jpg' alt='' />
-          </CardMedia>
+          <CardTitle title='Manual Orders' subtitle={MO_subtitle} />
           <CardActions>
             <RaisedButton label='Email Us'
               href='mailto:info@simplysheetsfundraising.com'
@@ -106,8 +120,7 @@ export default class Dashboard extends React.Component {
               icon={<FontIcon className='muidocs-icon-custom-github' />}
             />
             <RaisedButton label='Learn More'
-              href='mailto:info@simplysheetsfundraising.com'
-              icon={<FontIcon className='muidocs-icon-custom-github' />}
+              onClick={this.handle_MO_Toggle}
             />
           </CardActions>
           <CardText

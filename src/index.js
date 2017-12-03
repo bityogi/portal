@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-roboto'
+import 'typeface-francois-one'
+import 'typeface-lobster'
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';

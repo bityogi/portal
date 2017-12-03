@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: roboto, sans-serif;
 }
+
+menu-item-link {
+  font-size: 3rem;
+}
+
+h2 {
+  font-family: 'francois-one';
+}
+
+h3 {
+  font-family: 'lobster';
+}
