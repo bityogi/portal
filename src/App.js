@@ -6,7 +6,7 @@ import Menu from './custom-aor/menu';
 import { restClient } from './custom-aor/restClient';
 import authClient from './custom-aor/authClient';
 import CustomLayout from './custom-aor/customLayout';
-import Dashboard from './components/dashboard/dashboard'
+import Dashboard from './components/dashboard/'
 import OrganizationList from './components/organizations';
 import OrderList from './components/orders'
 import { ReportList, ReportCreate } from './components/reports/'
