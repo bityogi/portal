@@ -87,7 +87,7 @@ class CustomLayout extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={prefixedStyles.wrapper}>
           <div style={prefixedStyles.main}>
-            {width !== 1 && <CustomAppBar title={title} />}
+            {width !== 1 && <CustomAppBar title={title} logout={logout} />}
 
             <div
               className="body"
