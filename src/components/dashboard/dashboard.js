@@ -4,7 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {lightBlue50, lightBlue900} from 'material-ui/styles/colors'
+import {teal400, lightBlue900, pink700} from 'material-ui/styles/colors'
 
 const login_button_styles = {
   margin: 12,
@@ -67,7 +67,7 @@ export default class Dashboard extends React.Component {
             overlay={
               <CardTitle
                 titleStyle={{'fontSize':'30px', 'font-family':'lobster', 'padding':'1rem', 'fontWeight':'bold'}}
-                titleColor={lightBlue900}
+                titleColor={teal400}
                 title='Welcome to Simply Sheets Fundraising!'
               />
             }
@@ -112,7 +112,12 @@ export default class Dashboard extends React.Component {
           expanded={this.state.MO_expanded}
           onExpandChange={this.handle_MO_ExpandChange}
           style={{ margin: '2em' }}>
-          <CardTitle title='Manual Orders' subtitle={MO_subtitle} />
+          <CardTitle
+            title='Manual Orders'
+            titleColor={teal400}
+            subtitle={MO_subtitle}
+            subtitleColor={pink700}
+          />
           <CardActions>
             <RaisedButton label='Email Us'
               href='mailto:info@simplysheetsfundraising.com'

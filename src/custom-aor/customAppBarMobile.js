@@ -55,7 +55,7 @@ const styles = {
 //   <FontIcon className="material-icons" styles={styles.iconStyles}>power_settings_new</FontIcon>
 // )
 
-class CustomAppBar extends Component {
+class CustomAppBarMobile extends Component {
 
   constructor(props) {
     super(props);
@@ -149,7 +149,7 @@ class CustomAppBar extends Component {
   }
 }
 
-CustomAppBar.propTypes = {
+CustomAppBarMobile.propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
         .isRequired,
     toggleSidebar: PropTypes.func.isRequired,
@@ -168,4 +168,4 @@ const enhance = compose(
     })
 );
 
-export default enhance(CustomAppBar);
+export default enhance(CustomAppBarMobile);
