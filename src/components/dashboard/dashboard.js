@@ -1,10 +1,18 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import { Responsive, Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import {teal400, lightBlue900, pink700} from 'material-ui/styles/colors'
+import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
+import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+
+import Footer from '../../custom-aor/footer';
+
+const recentsIcon = <FontIcon className='material-icons'>restore</FontIcon>;
+const favoritesIcon = <FontIcon className='material-icons'>favorite</FontIcon>;
+const nearbyIcon = <IconLocationOn />;
 
 const login_button_styles = {
   margin: 12,
@@ -35,9 +43,12 @@ export default class Dashboard extends React.Component {
       super(props);
       this.state = {
         expanded: false,
-        MO_expanded: false
+        MO_expanded: false,
+        selectedIndex: 0,
       };
     }
+
+    select = (index) => this.setState({selectedIndex: index});
 
     handleExpandChange = (expanded) => {
       this.setState({expanded: expanded});
@@ -62,11 +73,11 @@ export default class Dashboard extends React.Component {
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
-          style={{ margin: '2em' }}>
+          style={{ marginTop: '0em', textAlign: 'justify' }}>
           <CardMedia
             overlay={
               <CardTitle
-                titleStyle={{'fontSize':'30px', 'font-family':'lobster', 'padding':'1rem', 'fontWeight':'bold'}}
+                titleStyle={{'fontSize':'30px', fontFamily:'lobster', 'padding':'1rem', 'fontWeight':'bold'}}
                 titleColor={teal400}
                 title='Welcome to Simply Sheets Fundraising!'
               />
@@ -79,17 +90,21 @@ export default class Dashboard extends React.Component {
           >
             {subtitle}
           </CardText>
-          <CardActions>
-            <RaisedButton label='Create a new account' style={login_button_styles} />
-            <RaisedButton label='Chairperson Login' primary={true} style={login_button_styles} />
-            <RaisedButton label='Seller/Sharer Login' primary={true} style={login_button_styles} />
+          <CardActions
+            style={{ padding: '10px' }}>
+            <RaisedButton
+              label='Create a new account'
+              style={login_button_styles} />
+            <RaisedButton
+              label='Chairperson Login' primary={true} style={login_button_styles} />
+            <RaisedButton
+              label='Seller/Sharer Login' primary={true} style={login_button_styles} />
             <RaisedButton label='Not Sure?  Click here!'
               secondary={true}
               onClick={this.handleToggle}
               icon={<FontIcon className='muidocs-icon-custom-github' />}
             />
           </CardActions>
-
           <CardText expandable={true}>
             <ul className='signup_guidance_wrapper'>
               <li>
@@ -111,12 +126,11 @@ export default class Dashboard extends React.Component {
         <Card
           expanded={this.state.MO_expanded}
           onExpandChange={this.handle_MO_ExpandChange}
-          style={{ margin: '2em' }}>
+          style={{ marginTop: '1em', textAlign: 'justify' }}>
           <CardTitle
             title='Manual Orders'
             titleColor={teal400}
             subtitle={MO_subtitle}
-            subtitleColor={pink700}
           />
           <CardActions>
             <RaisedButton label='Email Us'
@@ -156,6 +170,12 @@ export default class Dashboard extends React.Component {
             </section>
           </CardText>
         </Card>
+        <div
+          style={{ marginTop:'30px' }}
+          className='footer_wrapper'
+        >
+          <Footer />
+        </div>
       </div>
     )
   }

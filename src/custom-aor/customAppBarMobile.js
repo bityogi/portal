@@ -150,8 +150,6 @@ class CustomAppBarMobile extends Component {
 }
 
 CustomAppBarMobile.propTypes = {
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        .isRequired,
     toggleSidebar: PropTypes.func.isRequired,
     authClient: PropTypes.func,
 };

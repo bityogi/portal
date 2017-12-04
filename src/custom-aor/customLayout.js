@@ -116,6 +116,7 @@ class CustomLayout extends Component {
               </Sidebar>
             </div>
             <Notification />
+
             {isLoading && (
               <CircularProgress
                 color="#fff"

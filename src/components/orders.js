@@ -36,6 +36,10 @@ import {
     </Filter>
   )
 
+  const grid_styles = {
+    tr: { margin: '100px 100px' },
+  }
+
 class OrderList extends Component {
 
   render() {
@@ -47,7 +51,7 @@ class OrderList extends Component {
         title={'Orders'}
         filters={<OrderFilter />}
         perPage={15}>
-        <Datagrid>
+        <Datagrid style={grid_styles}>
           <TextField source="number" />
           <TextField label="campaign" source="campaign.name" />
           <TextField label="organization" source="campaign.organization.name" />
