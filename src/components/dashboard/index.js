@@ -38,31 +38,46 @@ class Dashboard extends Component {
           // return <ChairDashboard />
         } else {
           console.log('Applying Guest Dashboard');
+          this.setState({ role: 'Guest' })
           // return <GuestDashboard />
         }
       })
   }
 
   getDashboard() {
+    const { role } = this.state;
 
+    if (role === 'Admin') {
+      return 'Admin'
+    } else if (role === 'Chair') {
+      return 'Chair'
+    } else {
+      return 'Guest'
+    }
   }
 
 
   render() {
+    const { user } = this.props;
+    console.log('user in dashboard: ', user);
     return (
-      <Card>
-        <h1>Dashboard for {this.state.role}</h1>
-      </Card>
+
+        <h1>Dashboard for {this.getDashboard()}</h1>
+
 
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  user : state.user
+});
+
 const enhance = compose(
     getContext({
         authClient: PropTypes.func,
     }),
-    connect(null, {
+    connect(mapStateToProps, {
         push: pushAction
     })
 );

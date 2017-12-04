@@ -156,12 +156,16 @@ CustomAppBar.propTypes = {
     authClient: PropTypes.func,
 };
 
+const mapStateToProps = (state) => ({
+  user : state.user
+});
+
 const enhance = compose(
     muiThemeable(), // force redraw on theme change
     getContext({
         authClient: PropTypes.func,
     }),
-    connect(null, {
+    connect(mapStateToProps, {
         toggleSidebar: toggleSidebarAction,
         push: pushAction,
         userLogout: userLogout
