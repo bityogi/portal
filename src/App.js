@@ -13,6 +13,7 @@ import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
 import { LocationList, LocationEdit, LocationCreate } from './components/locations';
 import customReducers from './reducers';
+import customSagas from './sagas';
 
 import Salesforce from './components/salesforce'
 
@@ -29,6 +30,7 @@ class App extends Component {
         authClient={authClient}
         appLayout={CustomLayout}
         customReducers={customReducers}
+        customSagas={customSagas}
         >
         {permissions => {
 

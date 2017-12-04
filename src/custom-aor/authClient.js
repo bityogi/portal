@@ -1,5 +1,4 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK, AUTH_GET_PERMISSIONS } from 'admin-on-rest';
-import { setUser, logout } from '../actions/user';
 
 export default (type, params) => {
   if (type === AUTH_LOGIN) {
@@ -20,11 +19,7 @@ export default (type, params) => {
       .then((user) => {
         console.log('setting token: ', user);
         localStorage.setItem('user', JSON.stringify(user));
-        return (user);
-      })
-      .then((user) => {
-        setUser(user);
-        return Promise.resolve();
+        return Promise.resolve(user);
       })
       .catch((e) => {
         console.error('Error during authentication: ', e);
@@ -33,7 +28,6 @@ export default (type, params) => {
   if (type === AUTH_LOGOUT) {
     console.log('Logging out!');
     localStorage.removeItem('user');
-    logout();
     return Promise.resolve();
   }
   if (type === AUTH_ERROR) {

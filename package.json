@@ -11,6 +11,7 @@
     "react-scripts": "1.0.17",
     "typeface-abril-fatface": "0.0.44",
     "typeface-francois-one": "0.0.44",
+    "typeface-lobster": "0.0.45",
     "typeface-roboto": "0.0.45"
   },
   "scripts": {

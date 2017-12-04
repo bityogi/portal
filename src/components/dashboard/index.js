@@ -61,10 +61,7 @@ class Dashboard extends Component {
     const { user } = this.props;
     console.log('user in dashboard: ', user);
     return (
-
-        <h1>Dashboard for {this.getDashboard()}</h1>
-
-
+      <GuestDashboard />
     )
   }
 }
