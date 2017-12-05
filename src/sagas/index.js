@@ -1,7 +1,13 @@
-import { watchUserAuthSuccess } from './user';
+import { all } from 'redux-saga/effects';
 
-const customSagas = [
-  watchUserAuthSuccess
-];
+import { watchUserAuth } from './user';
 
-export default customSagas;
+export default watchUserAuth;
+
+// export default customSagas;
+// export default function* customSagas() {
+//   yield all([
+//     watchUserAuthSuccess(),
+//     watchUserLogout(),
+//   ])
+// };

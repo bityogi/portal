@@ -8,6 +8,7 @@ import {
  import compose from 'recompose/compose';
  import { push as pushAction } from 'react-router-redux';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import _ from 'lodash';
 
 import authClient from '../../custom-aor/authClient';
 
@@ -21,38 +22,35 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      role: ''
+      roles: []
     }
   }
 
   componentWillMount() {
     this.props.authClient(AUTH_GET_PERMISSIONS)
       .then(permissions => {
-        if (permissions.includes('Admin')) {
-          console.log('Applying Admin Dashboard');
-          // return <AdminDashboard />
-          this.setState({ role: 'Admin' })
-        } else if (permissions.includes('Chair')) {
-          console.log('Applying Chair Dashboard');
-          this.setState({ role: 'Chair' })
-          // return <ChairDashboard />
-        } else {
-          console.log('Applying Guest Dashboard');
-          this.setState({ role: 'Guest' })
-          // return <GuestDashboard />
-        }
-      })
+        this.setState({ roles: permissions });
+      });
   }
 
-  getDashboard() {
-    const { role } = this.state;
+  // componentWillReceiveProps(nextProps, nextState) {
+  //   // if (nextProps.user.roles) {
+  //   //   const roles = (nextProps.user.roles) ? nextProps.user.roles : [];
+  //   //   console.log('setting roles in nextProps to: ', roles);
+  //   //   this.setState({ roles: roles });
+  //   //   return true;
+  //   // }
+  // }
 
-    if (role === 'Admin') {
-      return 'Admin'
-    } else if (role === 'Chair') {
-      return 'Chair'
+  getDashboard() {
+    const { roles } = this.state;
+
+    if (roles.includes('Admin')) {
+      return ( <AdminDashboard /> );
+    } else if (roles.includes('Chair')) {
+      return ( <ChairDashboard /> );
     } else {
-      return 'Guest'
+      return ( <GuestDashboard /> );
     }
   }
 
@@ -61,7 +59,9 @@ class Dashboard extends Component {
     const { user } = this.props;
     console.log('user in dashboard: ', user);
     return (
-      <GuestDashboard />
+      <div>
+        {this.getDashboard()}
+      </div>
     )
   }
 }

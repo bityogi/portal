@@ -14,6 +14,8 @@ const recentsIcon = <FontIcon className='material-icons'>restore</FontIcon>;
 const favoritesIcon = <FontIcon className='material-icons'>favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
+import indexHeaderImage from '../../assets/images/index_header.jpg';
+
 const login_button_styles = {
   margin: 12,
 };
@@ -83,7 +85,7 @@ export default class Dashboard extends React.Component {
               />
             }
           >
-            <img src='./index_header.jpg' alt='' />
+            <img src={indexHeaderImage} alt='' />
           </CardMedia>
           <CardText
             style={{'fontSize':'20px', 'padding':'1rem', 'fontWeight':'bold'}}

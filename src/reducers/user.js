@@ -1,9 +1,6 @@
 import { SIGN_IN, SIGN_OUT } from '../actions/types';
 
-const initialState = {
-  loading : true,
-  data: {}
-}
+const initialState = {}
 
 export default function userReducer (state = initialState, action) {
   switch (action.type) {
@@ -12,7 +9,8 @@ export default function userReducer (state = initialState, action) {
       return action.payload;
       break;
     case SIGN_OUT:
-      return initialState;
+      console.log('SIGN_OUT action! payload = ', action.payload);
+      return action.payload;
     default:
       return state;
   }
