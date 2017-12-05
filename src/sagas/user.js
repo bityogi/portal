@@ -1,5 +1,5 @@
 import { put, takeEvery, all } from 'redux-saga/effects';
-import { USER_LOGIN_SUCCESS, AUTH_LOGOUT } from 'admin-on-rest';
+import { USER_LOGIN_SUCCESS, showNotification } from 'admin-on-rest';
 
 import { SIGN_IN, SIGN_OUT } from '../actions/types';
 
@@ -8,17 +8,19 @@ function* setUser(action) {
   yield put({ type: SIGN_IN, payload: action.payload });
 }
 
-function* logoutUser(action) {
+function* logoutNotification(action) {
   console.log('SAGA - logoutUser');
-  yield put({ type: SIGN_OUT, payload: '' });
+  yield put(showNotification('User logged out'));
 }
+
 
 export function* watchUserAuth() {
   yield all([
     takeEvery(USER_LOGIN_SUCCESS, setUser),
-    takeEvery(AUTH_LOGOUT, logoutUser)
-  ]);
+    takeEvery(SIGN_OUT, logoutNotification)
+  ])
 }
+
 
 // export function* watchUserLogout() {
 //   yield takeEvery(AUTH_LOGOUT, logoutUser);

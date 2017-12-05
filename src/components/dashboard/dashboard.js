@@ -10,11 +10,11 @@ import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
 import Footer from '../../custom-aor/footer';
 
+import indexHeaderImage from '../../assets/images/index_header.jpg';
+
 const recentsIcon = <FontIcon className='material-icons'>restore</FontIcon>;
 const favoritesIcon = <FontIcon className='material-icons'>favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
-
-import indexHeaderImage from '../../assets/images/index_header.jpg';
 
 const login_button_styles = {
   margin: 12,

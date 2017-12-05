@@ -30,7 +30,7 @@ class App extends Component {
         authClient={authClient}
         appLayout={CustomLayout}
         customReducers={customReducers}
-        customSagas={[customSagas]}
+        customSagas={customSagas}
         >
         {permissions => {
 

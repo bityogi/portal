@@ -20,6 +20,7 @@ import { SwitchPermissions, Permission } from 'aor-permissions';
 
 import defaultTheme from './defaultTheme';
 import authClient from './authClient';
+import { logout } from '../actions/user';
 
 const styles = {
   toolbar: {
@@ -88,6 +89,8 @@ class CustomAppBar extends Component {
 
     this.props.authClient(AUTH_LOGOUT)
       .then(() => {
+        console.log('this.props after authClient-LOGOUT: ', this.props);
+        this.props.logout();
         this.props.push('/');
       })
   }
@@ -168,7 +171,8 @@ const enhance = compose(
     connect(mapStateToProps, {
         toggleSidebar: toggleSidebarAction,
         push: pushAction,
-        userLogout: userLogout
+        userLogout: userLogout,
+        logout: logout
     })
 );
 
