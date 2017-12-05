@@ -89,7 +89,6 @@ class CustomAppBar extends Component {
 
     this.props.authClient(AUTH_LOGOUT)
       .then(() => {
-        console.log('this.props after authClient-LOGOUT: ', this.props);
         this.props.logout();
         this.props.push('/');
       })
@@ -172,7 +171,7 @@ const enhance = compose(
         toggleSidebar: toggleSidebarAction,
         push: pushAction,
         userLogout: userLogout,
-        logout: logout
+        logout
     })
 );
 

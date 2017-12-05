@@ -33,14 +33,12 @@ class Dashboard extends Component {
       });
   }
 
-  // componentWillReceiveProps(nextProps, nextState) {
-  //   // if (nextProps.user.roles) {
-  //   //   const roles = (nextProps.user.roles) ? nextProps.user.roles : [];
-  //   //   console.log('setting roles in nextProps to: ', roles);
-  //   //   this.setState({ roles: roles });
-  //   //   return true;
-  //   // }
-  // }
+  componentWillReceiveProps(nextProps, nextState) {
+    const roles = (nextProps.user.roles) || [];
+    if (roles !== this.state.roles) {
+      this.setState({ roles });
+    }
+  }
 
   getDashboard() {
     const { roles } = this.state;
@@ -57,7 +55,6 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props;
-    console.log('user in dashboard: ', user);
     return (
       <div>
         {this.getDashboard()}

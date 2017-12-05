@@ -50,7 +50,6 @@ class App extends Component {
             <Resource name='orders' list={OrderList} />
             : null,
 
-
           permissions.includes('Admin') ?
             <Resource name='locations' list={LocationList} edit={LocationEdit} create={LocationCreate} />
             : null,
@@ -58,8 +57,6 @@ class App extends Component {
           permissions.includes('Admin') ?
             <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
             : null,
-
-
 
           permissions.includes('Admin') ?
             <Resource name="reports" list={ReportList} create={ReportCreate} />
