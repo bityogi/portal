@@ -4,40 +4,24 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import {teal400, lightBlue900, pink700} from 'material-ui/styles/colors'
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
 
 import Footer from '../../custom-aor/footer';
 
 import indexHeaderImage from '../../assets/images/index_header.jpg';
+import styles from './styles.js';
+
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import muiThemeable from 'material-ui/styles/muiThemeable';
+
+import defaultTheme from '../../custom-aor/defaultTheme';
+
+const muiTheme = getMuiTheme(defaultTheme);
 
 const recentsIcon = <FontIcon className='material-icons'>restore</FontIcon>;
 const favoritesIcon = <FontIcon className='material-icons'>favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
-
-const login_button_styles = {
-  margin: 12,
-};
-
-const header_style = {
-  margin: 50,
-};
-
-const style = {
-  marginRight: 20,
-};
-
-const subtitle = `We offer our customers a unique experience in fundraising
-with the ability to control their profit margins for their
-locally distributed, community fundraiser and the ability
-to earn 40% profit through our online shopping fundraiser.
-Your organization is able to reach friends & family, far & wide
-to gain additional support!`;
-
-const MO_subtitle = `Manual Orders can and will be accepted.  If you do not have access to a computer
-or if our Chairperson Portal is unavailable, please contact us via email for
-instructions to manually place your order.`
 
 export default class Dashboard extends React.Component {
 
@@ -75,12 +59,12 @@ export default class Dashboard extends React.Component {
         <Card
           expanded={this.state.expanded}
           onExpandChange={this.handleExpandChange}
-          style={{ marginTop: '0em', textAlign: 'justify' }}>
+          style={styles.card_style}>
           <CardMedia
             overlay={
               <CardTitle
-                titleStyle={{'fontSize':'30px', fontFamily:'lobster', 'padding':'1rem', 'fontWeight':'bold'}}
-                titleColor={teal400}
+                titleStyle={styles.card_title_style}
+                titleColor={muiTheme.palette.primary1Color}
                 title='Welcome to Simply Sheets Fundraising!'
               />
             }
@@ -88,19 +72,19 @@ export default class Dashboard extends React.Component {
             <img src={indexHeaderImage} alt='' />
           </CardMedia>
           <CardText
-            style={{'fontSize':'20px', 'padding':'1rem', 'fontWeight':'bold'}}
+            style={styles.card_text_style}
           >
-            {subtitle}
+            {styles.subtitle}
           </CardText>
           <CardActions
-            style={{ padding: '10px' }}>
+            style={styles.card_action_style}>
             <RaisedButton
               label='Create a new account'
-              style={login_button_styles} />
+              style={styles.login_button_styles} />
             <RaisedButton
-              label='Chairperson Login' primary={true} style={login_button_styles} />
+              label='Chairperson Login' primary={true} style={styles.login_button_styles} />
             <RaisedButton
-              label='Seller/Sharer Login' primary={true} style={login_button_styles} />
+              label='Seller/Sharer Login' primary={true} style={styles.login_button_styles} />
             <RaisedButton label='Not Sure?  Click here!'
               secondary={true}
               onClick={this.handleToggle}
@@ -131,8 +115,8 @@ export default class Dashboard extends React.Component {
           style={{ marginTop: '1em', textAlign: 'justify' }}>
           <CardTitle
             title='Manual Orders'
-            titleColor={teal400}
-            subtitle={MO_subtitle}
+            titleColor={muiTheme.palette.primary1Color}
+            subtitle={styles.MO_subtitle}
           />
           <CardActions>
             <RaisedButton label='Email Us'

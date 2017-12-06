@@ -21,7 +21,6 @@ import FontIcon from 'material-ui/FontIcon';
 const userNotFound = () => (<LoginMenuItem />)
 
 const muiTheme = getMuiTheme(defaultTheme);
-console.log('muiTheme: ', muiTheme);
 
 const menuStyles = {
   fontSize:'1.2em', color: muiTheme.palette.primary1Color
