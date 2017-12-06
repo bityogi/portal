@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getContext from 'recompose/getContext';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import compose from 'recompose/compose';
 import {
@@ -18,9 +20,14 @@ import IconButton from 'material-ui/IconButton';
 import { push as pushAction } from 'react-router-redux';
 import { SwitchPermissions, Permission } from 'aor-permissions';
 
+import smallLogoImage from '../assets/images/SSF_logo.png'
+
 import defaultTheme from './defaultTheme';
 import authClient from './authClient';
 import { logout } from '../actions/user';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+const muiTheme = getMuiTheme(defaultTheme);
 
 const styles = {
   toolbar: {
@@ -29,11 +36,12 @@ const styles = {
 
   iconStyles : {
     marginTop: 0,
-    marginRight: 0,
+    marginRight: '10px',
     marginLeft: '-24px',
+    color: muiTheme.palette.primary1Color,
   },
   title : {
-    color: '#26A69A',
+    color: muiTheme.palette.primary1Color,
     marginLeft: '20px',
     cursor: 'pointer',
     fontWeight: 'bold',
@@ -47,6 +55,9 @@ const styles = {
   },
   loginButtons: {
     margin: '10px 10px',
+  },
+  logoutButton: {
+    color: muiTheme.palette.primary1Color,
   }
 }
 
@@ -116,9 +127,9 @@ class CustomAppBar extends Component {
 
   renderLogoutItems() {
     return (
-      <RaisedButton
-        label="Log out"
-        style={styles.loginButtons}
+      <FlatButton
+        label='Log out'
+        style={styles.logoutButton}
         onClick={this.logout.bind(this)}
         icon={<FontIcon className="material-icons">power_settings_new</FontIcon>}
       />
@@ -140,6 +151,10 @@ class CustomAppBar extends Component {
       <Toolbar style={styles.toolbar}>
         <ToolbarGroup>
           <FontIcon className="material-icons" style={styles.iconStyles} onClick={toggleSidebar}>menu</FontIcon>
+          <img
+            alt='Simply Sheets Fundraising Logo'
+            className='logoSmall img-responsive'
+            src={smallLogoImage} />
           <ToolbarTitle text={title} style={styles.title} onClick={() => push('/')} />
         </ToolbarGroup>
         <ToolbarGroup>

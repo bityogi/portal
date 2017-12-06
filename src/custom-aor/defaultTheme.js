@@ -1,6 +1,6 @@
 import {
   teal400, teal900,
-  cyan700, cyan500,
+  cyan700, cyan500, cyan800,
   pinkA200, pink900,
   lightGreen600,
   grey100, grey300, grey400, grey500,
@@ -13,7 +13,7 @@ export default {
     spacing: spacing,
     fontFamily: 'Roboto, sans-serif',
     palette: {
-      primary1Color: teal400,
+      primary1Color: cyan800,
       primary2Color: lightGreen600,
       primary3Color: grey400,
       accent1Color: pink900,
