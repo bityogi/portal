@@ -17,7 +17,6 @@ import withWidth from 'material-ui/utils/withWidth';
 
 import defaultTheme from './defaultTheme';
 import CustomAppBar from './customAppBar';
-import CustomAppBarMobile from './customAppBarMobile';
 
 const styles = {
   wrapper: {
@@ -88,8 +87,7 @@ class CustomLayout extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={prefixedStyles.wrapper}>
           <div style={prefixedStyles.main}>
-            {width !== 1 && <CustomAppBar title={title} logout={logout} />}
-            {width === 1 && <CustomAppBarMobile logout={logout} />}
+            <CustomAppBar title={title} logout={logout} />
             <div
               className="body"
               style={

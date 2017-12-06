@@ -139,7 +139,7 @@ class CustomAppBar extends Component {
     return (
       <Toolbar style={styles.toolbar}>
         <ToolbarGroup>
-          <FontIcon className="material-icons" style={styles.iconSytles} onClick={toggleSidebar}>menu</FontIcon>
+          <FontIcon className="material-icons" style={styles.iconStyles} onClick={toggleSidebar}>menu</FontIcon>
           <ToolbarTitle text={title} style={styles.title} onClick={() => push('/')} />
         </ToolbarGroup>
         <ToolbarGroup>
