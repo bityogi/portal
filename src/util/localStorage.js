@@ -1,13 +1,15 @@
 
 export const loadState = () => {
   try {
-    console.log('getting persisted state!');
-    const serializedState = localStorage.setItem('state');
+    const serializedState = localStorage.getItem('state');
     if (serializedState === null) {
+      console.log('GETTING PERSISTED STATE (NOTHING FOUND)! ');
       return undefined;
     }
+    console.log('GETTING PERSISTED STATE! ', JSON.parse(serializedState));
     return JSON.parse(serializedState);
   } catch(err) {
+    console.error('Error getting persisted state. ', err);
     return undefined;
   }
 };

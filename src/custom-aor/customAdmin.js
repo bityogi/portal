@@ -19,9 +19,9 @@ import Login from 'admin-on-rest/lib/mui/auth/Login';
 import Logout from 'admin-on-rest/lib/mui/auth/Logout';
 import TranslationProvider from 'admin-on-rest/lib/i18n/TranslationProvider';
 
-import throttle from 'lodash/throttle';
 
-import { loadState, saveState } from '../util/localStorage';
+import { autoRehydrate, persistStore } from 'redux-persist';
+import { IntlProvider } from 'react-intl'
 
 const Admin = ({
     appLayout,
@@ -55,22 +55,25 @@ const Admin = ({
     const sagaMiddleware = createSagaMiddleware();
     const routerHistory = history || createHistory();
 
-    const persistedState = loadState();
+    // const persistedState = loadState();
 
-    const store = createStore(
-        resettableAppReducer, // change from resettableAppReducer
+    const store = compose(
+      autoRehydrate()
+    )(createStore)(
+        resettableAppReducer,
         initialState,
         compose(
             applyMiddleware(sagaMiddleware, routerMiddleware(routerHistory)),
             window.devToolsExtension ? window.devToolsExtension() : f => f
-        ),
-        persistedState
+        )
     );
-    store.subscribe(throttle(() => {
-      saveState({
-        user: store.getState().user
-      });
-    }, 2000));
+
+    persistStore(store);
+    // store.subscribe(throttle(() => {
+    //   saveState({
+    //     user: store.getState().user
+    //   });
+    // }, 10000));
 
     sagaMiddleware.run(saga);
 
@@ -79,6 +82,7 @@ const Admin = ({
     return (
         <Provider store={store}>
             <TranslationProvider messages={messages}>
+              <IntlProvider locale={locale}>
                 <ConnectedRouter history={routerHistory}>
                     <div>
                         <Switch>
@@ -138,7 +142,8 @@ const Admin = ({
                             />
                         </Switch>
                     </div>
-                </ConnectedRouter>
+                  </ConnectedRouter>
+                </IntlProvider>
             </TranslationProvider>
         </Provider>
     );

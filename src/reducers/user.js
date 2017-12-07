@@ -11,7 +11,9 @@ export default function userReducer (state = initialState, action) {
     case SIGN_OUT:
       console.log('SIGN_OUT action! payload = ', action.payload);
       return action.payload;
+      break;
     default:
+      console.log('user reducer: DEFAULT_STATE. payload = ', state);
       return state;
   }
 
