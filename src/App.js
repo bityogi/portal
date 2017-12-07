@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Admin, Resource } from 'admin-on-rest';
 import TocIcon from 'material-ui/svg-icons/action/toc';
 
+import CustomAdmin from './custom-aor/customAdmin';
 import Menu from './custom-aor/menu';
 import { restClient } from './custom-aor/restClient';
 import authClient from './custom-aor/authClient';
@@ -22,7 +23,7 @@ class App extends Component {
   render() {
 
     return (
-      <Admin
+      <CustomAdmin
         dashboard={Dashboard}
         restClient={restClient}
         title={'SimplySheets Fundraising Portal'}
@@ -66,7 +67,7 @@ class App extends Component {
 
         ]}}
 
-      </Admin>
+      </CustomAdmin>
     );
   }
 }

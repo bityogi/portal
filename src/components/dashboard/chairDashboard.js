@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
-import thunk from 'redux-thunk';
 import { push as pushAction } from 'react-router-redux';
 
 import { Link } from 'react-router-dom';
@@ -18,9 +17,9 @@ import FundrasingMethods from '../campaign/fundraisingMethods'
 class ChairDashboard extends Component {
   componentDidMount() {
     const { orgId } = this.props.user;
-    this.props.getOrganization(orgId)
-    this.props.getCampaigns(orgId)
-    this.props.getRegisteredSellers(orgId)
+    // this.props.getOrganization(orgId)
+    // this.props.getCampaigns(orgId)
+    // this.props.getRegisteredSellers(orgId)
   }
 
   render() {
