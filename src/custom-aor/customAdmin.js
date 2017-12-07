@@ -23,6 +23,7 @@ import TranslationProvider from 'admin-on-rest/lib/i18n/TranslationProvider';
 import { autoRehydrate, persistStore } from 'redux-persist';
 import { IntlProvider } from 'react-intl';
 import thunk from 'redux-thunk';
+import { CookiesProvider } from 'react-cookie'
 
 const Admin = ({
     appLayout,
@@ -86,6 +87,7 @@ const Admin = ({
             <TranslationProvider messages={messages}>
               <IntlProvider locale={locale}>
                 <ConnectedRouter history={routerHistory}>
+                  <CookiesProvider>
                     <div>
                         <Switch>
                             <Route
@@ -143,7 +145,8 @@ const Admin = ({
                                     })}
                             />
                         </Switch>
-                    </div>
+                      </div>
+                    </CookiesProvider>
                   </ConnectedRouter>
                 </IntlProvider>
             </TranslationProvider>

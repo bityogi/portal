@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../util/axios'
 import _ from 'lodash';
 
 import { GET_CAMPAIGN, GET_CAMPAIGNS } from './types';

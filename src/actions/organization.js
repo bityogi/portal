@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../util/axios'
 
 import { GET_ORGANIZATION } from './types';
 

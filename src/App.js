@@ -32,6 +32,7 @@ class App extends Component {
         appLayout={CustomLayout}
         customReducers={customReducers}
         customSagas={customSagas}
+        locale={'en'}
         >
         {permissions => {
 
