@@ -17,9 +17,9 @@ import FundrasingMethods from '../campaign/fundraisingMethods'
 class ChairDashboard extends Component {
   componentDidMount() {
     const { orgId } = this.props.user;
-    // this.props.getOrganization(orgId)
-    // this.props.getCampaigns(orgId)
-    // this.props.getRegisteredSellers(orgId)
+    this.props.getOrganization(orgId)
+    this.props.getCampaigns(orgId)
+    this.props.getRegisteredSellers(orgId)
   }
 
   render() {

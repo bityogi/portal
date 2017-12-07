@@ -12,6 +12,7 @@
     "react-intl": "^2.4.0",
     "react-scripts": "1.0.17",
     "redux-persist": "^4.8.2",
+    "redux-thunk": "^2.2.0",
     "typeface-francois-one": "0.0.44",
     "typeface-lobster": "0.0.45",
     "typeface-roboto": "0.0.45"

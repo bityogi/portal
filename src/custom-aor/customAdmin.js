@@ -21,7 +21,8 @@ import TranslationProvider from 'admin-on-rest/lib/i18n/TranslationProvider';
 
 
 import { autoRehydrate, persistStore } from 'redux-persist';
-import { IntlProvider } from 'react-intl'
+import { IntlProvider } from 'react-intl';
+import thunk from 'redux-thunk';
 
 const Admin = ({
     appLayout,
@@ -63,9 +64,10 @@ const Admin = ({
         resettableAppReducer,
         initialState,
         compose(
-            applyMiddleware(sagaMiddleware, routerMiddleware(routerHistory)),
+            applyMiddleware(sagaMiddleware, routerMiddleware(routerHistory), thunk),
             window.devToolsExtension ? window.devToolsExtension() : f => f
-        )
+        ),
+
     );
 
     persistStore(store);
