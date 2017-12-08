@@ -4,6 +4,8 @@ import campaigns from './campaigns';
 import organization from './organization';
 import chair from './chair';
 import sellerStandings from './sellerStandings';
+import order from './order';
+import sellers from './sellers';
 
 const reducers = {
   user,
@@ -11,7 +13,9 @@ const reducers = {
   organization,
   chair,
   campaigns,
-  sellerStandings
+  sellerStandings,
+  order,
+  sellers
 }
 
 export default reducers;
