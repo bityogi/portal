@@ -17,7 +17,8 @@ import customReducers from './reducers';
 import customSagas from './sagas';
 
 import Salesforce from './components/salesforce';
-// import customRoutes from './routes/customRoutes';
+import customRoutes from './routes/customRoutes';
+
 
 class App extends Component {
 
@@ -34,6 +35,7 @@ class App extends Component {
         customReducers={customReducers}
         customSagas={customSagas}
         locale={'en'}
+        customRoutes={customRoutes}
         >
         {permissions => {
 
