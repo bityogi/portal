@@ -8,8 +8,8 @@ import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
-import { getOrganization } from '../../../reducers/organization'
-import { getCampaign } from '../../../reducers/campaign'
+import { getOrganization } from '../../actions/organization'
+import { getCampaign } from '../../actions/campaign'
 
 import CampaignInfo from './campaignInfo'
 import OrderInfo from './orderInfo'

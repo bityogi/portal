@@ -12,6 +12,7 @@
     "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",
     "react-scripts": "1.0.17",
+    "redux-form-material-ui": "^4.3.1",
     "redux-persist": "^4.8.2",
     "redux-thunk": "^2.2.0",
     "typeface-francois-one": "0.0.44",

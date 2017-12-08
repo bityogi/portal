@@ -9,10 +9,15 @@ import { Link } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton'
 import Divider from 'material-ui/Divider'
 
+import { Route, Switch } from 'react-router-dom';
+
 import { getOrganization, getCampaigns, getRegisteredSellers } from '../../actions';
 
 import DefaultCampaign from '../campaign/defaultCampaign';
-import FundrasingMethods from '../campaign/fundraisingMethods'
+import FundrasingMethods from '../campaign/fundraisingMethods';
+
+import Campaigns from '../campaigns'
+import NewCampaign from '../campaign'
 
 class ChairDashboard extends Component {
   componentDidMount() {
@@ -50,6 +55,11 @@ class ChairDashboard extends Component {
           <h2>You have 2 methods for fundraising.</h2>
           <Divider />
           <FundrasingMethods />
+
+          <Switch>
+            <Route exact path="/chair/:orgId/campaigns" component={Campaigns} />
+            <Route exact path="/chair/:orgId/campaign/new" component={NewCampaign} />
+          </Switch>
         </div>
         )
     }

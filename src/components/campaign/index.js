@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Switch } from 'react-router-dom'
-import PropsRoute from '../../../util/PropsRoute'
+
+import PropsRoute from '../../util/components/PropsRoute'
 
 import Info from './info'
 import PriceGuideline from './priceGuidelines'

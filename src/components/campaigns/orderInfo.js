@@ -12,9 +12,9 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
-import { computeSheetTotals, computePillowCaseTotals } from '../../../util/orderTotals'
-import Currency from '../../../components/Currency'
-import Percent from '../../../components/Percent'
+import { computeSheetTotals, computePillowCaseTotals } from '../../util/orderTotals'
+import Currency from '../../util/components/Currency'
+import Percent from '../../util/components/Percent'
 
 class SelectedOrder extends Component {
 

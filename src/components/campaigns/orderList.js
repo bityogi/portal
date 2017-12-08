@@ -15,7 +15,7 @@ import Divider from 'material-ui/Divider';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 
-import { getOrder } from '../../../reducers/order'
+import { getOrder } from '../../actions/order'
 
 class OrderList extends Component {
 
