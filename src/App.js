@@ -13,8 +13,8 @@ import OrderList from './components/orders'
 import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
 import { LocationList, LocationEdit, LocationCreate } from './components/locations';
-import customReducers from './reducers';
-import customSagas from './sagas';
+// import customReducers from './reducers';
+// import customSagas from './sagas';
 
 import Salesforce from './components/salesforce';
 import customRoutes from './routes/customRoutes';
@@ -32,8 +32,6 @@ class App extends Component {
         menu={Menu}
         authClient={authClient}
         appLayout={CustomLayout}
-        customReducers={customReducers}
-        customSagas={customSagas}
         locale={'en'}
         customRoutes={customRoutes}
         >
