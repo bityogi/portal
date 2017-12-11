@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { routerMiddleware } from 'react-router-redux';
 
 import withContext from 'recompose/withContext';
@@ -121,4 +121,4 @@ export default withContext(
         authClient: PropTypes.func,
     },
     ({ authClient }) => ({ authClient })
-)(withRouter(Admin));
+)(Admin);

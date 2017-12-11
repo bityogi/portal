@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Admin, Resource } from 'admin-on-rest';
 import TocIcon from 'material-ui/svg-icons/action/toc';
+import { withRouter } from 'react-router-dom';
 
 import CustomAdmin from './custom-aor/customAdmin';
 import Menu from './custom-aor/menu';
@@ -13,8 +14,6 @@ import OrderList from './components/orders'
 import { ReportList, ReportCreate } from './components/reports/'
 import { ProductList, ProductEdit, ProductCreate } from './components/products';
 import { LocationList, LocationEdit, LocationCreate } from './components/locations';
-// import customReducers from './reducers';
-// import customSagas from './sagas';
 
 import Salesforce from './components/salesforce';
 import customRoutes from './routes/customRoutes';
@@ -74,4 +73,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

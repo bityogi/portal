@@ -29,8 +29,6 @@ const saga = function* rootSaga() {
 const sagaMiddleware = createSagaMiddleware();
 const routerHistory = createHistory();
 
-// const persistedState = loadState();
-
 const store = compose(
   autoRehydrate()
 )(createStore)(
@@ -43,11 +41,7 @@ const store = compose(
 );
 
 persistStore(store);
-// store.subscribe(throttle(() => {
-//   saveState({
-//     user: store.getState().user
-//   });
-// }, 10000));
+
 
 sagaMiddleware.run(saga);
 
