@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import TranslationProvider from 'admin-on-rest/lib/i18n/TranslationProvider';
 import { IntlProvider } from 'react-intl';
 import { ConnectedRouter } from 'react-router-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { CookiesProvider } from 'react-cookie';
 import createHistory from 'history/createHashHistory';
 
@@ -27,11 +28,13 @@ ReactDOM.render(
   <Provider store={store}>
     <TranslationProvider messages={messages}>
       <IntlProvider locale={locale}>
-        <ConnectedRouter history={routerHistory}>
-          <CookiesProvider>
-            <App />
-          </CookiesProvider>
-        </ConnectedRouter>
+        <BrowserRouter>
+          <ConnectedRouter history={routerHistory}>
+            <CookiesProvider>
+              <App />
+            </CookiesProvider>
+          </ConnectedRouter>
+        </BrowserRouter>
       </IntlProvider>
     </TranslationProvider>
   </Provider>

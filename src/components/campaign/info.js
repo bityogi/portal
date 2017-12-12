@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-
+import { connect } from 'react-redux';
 import { TextField, DatePicker } from 'redux-form-material-ui';
-
 import FlatButton from 'material-ui/FlatButton';
+import { push as pushAction } from 'react-router-redux';
 
 const validate = values => {
   const errors = {}
@@ -81,4 +81,8 @@ Info = reduxForm({
   warn: () => {}
 })(Info);
 
-export default Info;
+const mapDispatchToProps = {
+  push: pushAction
+}
+
+export default connect(null, mapDispatchToProps)(Info);
