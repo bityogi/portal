@@ -1,74 +1,70 @@
-import React, { Component } from 'react';
-import { Admin, Resource } from 'admin-on-rest';
-import TocIcon from 'material-ui/svg-icons/action/toc';
-import { withRouter } from 'react-router-dom';
+import React, { Component, createElement } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
+
+import { Resource } from 'admin-on-rest';
+
+import Login from 'admin-on-rest/lib/mui/auth/Login';
+import Logout from 'admin-on-rest/lib/mui/auth/Logout';
 
 import CustomAdmin from './custom-aor/customAdmin';
 import Menu from './custom-aor/menu';
 import { restClient } from './custom-aor/restClient';
 import authClient from './custom-aor/authClient';
 import CustomLayout from './custom-aor/customLayout';
-import Dashboard from './components/dashboard/'
-import OrganizationList from './components/organizations';
-import OrderList from './components/orders'
-import { ReportList, ReportCreate } from './components/reports/'
-import { ProductList, ProductEdit, ProductCreate } from './components/products';
-import { LocationList, LocationEdit, LocationCreate } from './components/locations';
+import theme from './custom-aor/defaultTheme';
 
-import Salesforce from './components/salesforce';
-import customRoutes from './routes/customRoutes';
+import Dashboard from './components/dashboard/'
+
+
+
+import ChairHome from './components/dashboard/chairDashboard';
+import Campaigns from './components/campaigns';
+import NewCampaign from './components/campaign';
+
+
+// import customRoutes from './routes/customRoutes';
 
 
 class App extends Component {
 
+
   render() {
+    const dashboard = Dashboard;
+    const logout = authClient ? createElement(Logout) : null;
+    const menu = Menu;
+    const title = 'SimplySheets Fundraising Portal';
+    const locale = 'en';
 
     return (
-      <CustomAdmin
-        dashboard={Dashboard}
-        restClient={restClient}
-        title={'SimplySheets Fundraising Portal'}
-        menu={Menu}
-        authClient={authClient}
-        appLayout={CustomLayout}
-        locale={'en'}
-        customRoutes={customRoutes}
-        >
-        {permissions => {
-
-          console.log('permissions: ', permissions);
-
-          return [
-
-
-          permissions.includes('Admin') ?
-            <Resource
-              name='organizations'
-              list={OrganizationList}
-              icon={TocIcon}/>
-            : null,
-
-          permissions.includes('Admin') ?
-            <Resource name='orders' list={OrderList} />
-            : null,
-
-          permissions.includes('Admin') ?
-            <Resource name='locations' list={LocationList} edit={LocationEdit} create={LocationCreate} />
-            : null,
-
-          permissions.includes('Admin') ?
-            <Resource name='products' list={ProductList} edit={ProductEdit} create={ProductCreate} />
-            : null,
-
-          permissions.includes('Admin') ?
-            <Resource name="reports" list={ReportList} create={ReportCreate} />
-            : null,
-
-          <Resource name="salesforce" list={Salesforce} />,
-
-        ]}}
-
-      </CustomAdmin>
+      <div>
+        <Switch>
+          <Route
+              exact
+              path="/login"
+              render={({ location }) =>
+                  createElement(Login, {
+                      location,
+                      title,
+                      theme,
+                  })}
+          />
+          <Route exact path="/chair/:orgId" component={ChairHome} />
+          <Route exact path="/chair/:orgId/campaigns" component={Campaigns} />
+          <Route exact path="/chair/:orgId/campaigns/new" component={NewCampaign} />
+          <Route
+              path="/"
+              render={() =>
+                  createElement(CustomLayout, {
+                      authClient,
+                      restClient,
+                      dashboard,
+                      logout,
+                      menu,
+                      title,
+                  })}
+          />
+        </Switch>
+      </div>
     );
   }
 }

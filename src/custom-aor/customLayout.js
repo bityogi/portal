@@ -1,5 +1,6 @@
 import React, { createElement, Component } from 'react';
 import PropTypes from 'prop-types';
+import withContext from 'recompose/withContext';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgress from 'material-ui/CircularProgress';
@@ -70,7 +71,10 @@ class CustomLayout extends Component {
       theme,
       title,
       width,
+      authClient
     } = this.props;
+
+    console.log('authClient: ', authClient);
 
     const muiTheme = getMuiTheme(theme);
     if (!prefixedStyles.main) {
@@ -87,7 +91,7 @@ class CustomLayout extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={prefixedStyles.wrapper}>
           <div style={prefixedStyles.main}>
-            <CustomAppBar title={title} logout={logout} />
+            <CustomAppBar title={title} logout={logout} authClient={authClient} />
             <div
               className="body"
               style={
@@ -163,6 +167,12 @@ CustomLayout.defaultProps = {
 const mapStateToProps = state => ({ isLoading: state.admin.loading > 0 });
 
 const enhance = compose(
+  withContext(
+      {
+          authClient: PropTypes.func,
+      },
+      ({ authClient }) => ({ authClient })
+  ),
   connect(mapStateToProps, {
     setSidebarVisibility: setSidebarVisibilityAction
   }),
