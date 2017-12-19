@@ -85,7 +85,6 @@ const Admin = ({
                                 menu,
                                 catchAll,
                                 title,
-                                theme,
                             })}
                     />
                 </Switch>

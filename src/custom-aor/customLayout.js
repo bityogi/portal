@@ -1,4 +1,5 @@
 import React, { createElement, Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import withContext from 'recompose/withContext';
 import { connect } from 'react-redux';
@@ -18,6 +19,12 @@ import withWidth from 'material-ui/utils/withWidth';
 
 import defaultTheme from './defaultTheme';
 import CustomAppBar from './customAppBar';
+
+import Dashboard from '../components/dashboard/';
+import OrganizationList from '../components/organizations';
+import OrderList from '../components/orders';
+
+import theme from '.'
 
 const styles = {
   wrapper: {
@@ -89,46 +96,13 @@ class CustomLayout extends Component {
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={prefixedStyles.wrapper}>
-          <div style={prefixedStyles.main}>
-            <CustomAppBar title={title} logout={logout} authClient={authClient} />
-            <div
-              className="body"
-              style={
-                width === 1 ? ( prefixedStyles.bodySmall) : (prefixedStyles.body)
-              }
-            >
-              <div style={
-                  width === 1 ? (prefixedStyles.contentSmall) : (prefixedStyles.content)
-                }
-              >
-                <AdminRoutes
-                  customRoutes={customRoutes}
-                  dashboard={dashboard}
-                  catchAll={catchAll}
-                >
-                {children}
-                </AdminRoutes>
-              </div>
-              <Sidebar>
-                {createElement(menu || Menu, {
-                  logout,
-                  hasDashboard: !!dashboard,
-                })}
-              </Sidebar>
-            </div>
-            <Notification />
+        <CustomAppBar title="My Admin" authclient={authClient} />
+        <Switch>
+           <Route exact path="/" component={Dashboard} />
+           <Route exact path="/orders" hasCreate render={(routeProps) => <OrderList resource="posts" {...routeProps} />} />
+           <Route exact path="/organizations" hasCreate render={(routeProps) => <OrganizationList resource="organizations" {...routeProps} />} />
 
-            {isLoading && (
-              <CircularProgress
-                color="#fff"
-                size={width === 1 ? 20 : 30}
-                thickness={2}
-                style={styles.loader}
-              />
-            )}
-          </div>
-        </div>
+        </Switch>
       </MuiThemeProvider>
     )
   }

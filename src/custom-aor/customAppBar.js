@@ -78,18 +78,18 @@ class CustomAppBar extends Component {
   }
 
   componentWillMount() {
-    this.props.authClient(AUTH_GET_PERMISSIONS)
-      .then(permissions => {
-        if (permissions.includes('Admin') || permissions.includes('Chair')) {
-          this.setState({
-            loggedIn: true
-          })
-        } else {
-          this.setState({
-            loggedIn: false
-          })
-        }
-      })
+    // this.props.authClient(AUTH_GET_PERMISSIONS)
+    //   .then(permissions => {
+    //     if (permissions.includes('Admin') || permissions.includes('Chair')) {
+    //       this.setState({
+    //         loggedIn: true
+    //       })
+    //     } else {
+    //       this.setState({
+    //         loggedIn: false
+    //       })
+    //     }
+    //   })
   }
 
   logout() {
@@ -179,9 +179,9 @@ const mapStateToProps = (state) => ({
 
 const enhance = compose(
     muiThemeable(), // force redraw on theme change
-    getContext({
-        authClient: PropTypes.func,
-    }),
+    // getContext({
+    //     authClient: PropTypes.func,
+    // }),
     connect(mapStateToProps, {
         toggleSidebar: toggleSidebarAction,
         push: pushAction,

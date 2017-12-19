@@ -27,10 +27,10 @@ class Dashboard extends Component {
   }
 
   componentWillMount() {
-    this.props.authClient(AUTH_GET_PERMISSIONS)
-      .then(permissions => {
-        this.setState({ roles: permissions });
-      });
+    // this.props.authClient(AUTH_GET_PERMISSIONS)
+    //   .then(permissions => {
+    //     this.setState({ roles: permissions });
+    //   });
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -48,7 +48,7 @@ class Dashboard extends Component {
     } else if (roles.includes('Chair')) {
       return ( <ChairDashboard /> );
     } else {
-      return ( <GuestDashboard /> );
+      return ( <ChairDashboard /> );
     }
   }
 

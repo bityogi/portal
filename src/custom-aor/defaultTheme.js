@@ -9,7 +9,7 @@ import {
 import { fade } from 'material-ui/utils/colorManipulator';
 import spacing from 'material-ui/styles/spacing';
 
-export default {
+export default { 
     spacing: spacing,
     fontFamily: 'Roboto, sans-serif',
     palette: {
